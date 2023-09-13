@@ -1,0 +1,27 @@
+<div class="articles active">
+  <div class="articles__left-side">
+    <button
+      class="articles__create-btn"
+      mat-raised-button
+      (click)="toggleOpenStatus()"
+    >
+      Create new article
+    </button>
+
+    <app-articles-list
+      *ngIf="articles$ | async as articles"
+      [articles]="articles"
+      (selectedArticle)="getArticle($event)"
+    ></app-articles-list>
+  </div>
+
+  <div class="articles__right-side">
+    <app-article></app-article>
+  </div>
+
+  <app-article-form
+    *ngIf="open"
+    (submitArticle)="createArticle($event)"
+    (close)="toggleOpenStatus()"
+  ></app-article-form>
+</div>

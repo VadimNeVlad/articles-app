@@ -1,0 +1,13 @@
+<div class="articles-list">
+  <div class="articles-list__list">
+    <h2 *ngIf="!articles.length" class="articles-list__note">
+      No articles, create new articles to start!
+    </h2>
+
+    <app-articles-item
+      *ngFor="let article of articles; trackBy: trackById"
+      [article]="article"
+      (selectedArticle)="onSelectArticle($event)"
+    ></app-articles-item>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<form [formGroup]="form" class="article-form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="article-form__field">
+    <input formControlName="title" matInput placeholder="Title" />
+  </mat-form-field>
+  <div
+    *ngIf="
+      form.get('title')?.hasError('required') && form.get('title')?.touched
+    "
+    class="article-form__error"
+  >
+    This field is required
+  </div>
+
+  <mat-form-field class="article-form__field">
+    <textarea
+      formControlName="text"
+      matInput
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="20"
+      cdkAutosizeMaxRows="20"
+      placeholder="Type your article text"
+    ></textarea>
+  </mat-form-field>
+  <div
+    *ngIf="form.get('text')?.hasError('required') && form.get('text')?.touched"
+    class="article-form__error"
+  >
+    This field is required
+  </div>
+
+  <div class="article-form__btns">
+    <button [disabled]="!form.valid" mat-raised-button>
+      Create new article
+    </button>
+    <button type="button" mat-raised-button color="warn" (click)="onClose()">
+      Cancel
+    </button>
+  </div>
+</form>

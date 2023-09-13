@@ -1,0 +1,22 @@
+.articles {
+  padding: 50px 15px;
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 164px);
+
+  &__left-side {
+    min-width: 300px;
+    max-width: 300px;
+    width: 100%;
+    margin-right: 50px;
+    border-right: 1px solid #000;
+  }
+
+  &__right-side {
+    width: 100%;
+  }
+
+  &__create-btn {
+    margin-bottom: 40px;
+  }
+}
